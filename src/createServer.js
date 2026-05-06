@@ -11,6 +11,11 @@ const createServer = () => {
 
   app.use(cors());
 
+  app.use((req, res, next) => {
+    res.setHeader('Content-Type', 'application/json; charset=utf-8');
+    next();
+  });
+
   // #region Users
 
   app.get('/users', async (req, res) => {
